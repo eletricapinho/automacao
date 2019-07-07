@@ -1,1 +1,0 @@
-tema : jekyll-tema-tátil
