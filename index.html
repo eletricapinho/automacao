@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Painel de Controle</title>
+    <link rel="stylesheet" href="firebase.css">
+</head>
+<body>
+    <header>
+    <h1>Painel de Controle</h1>
+    </header>
+
+    
+
+    <section>
+
+    <div>
+    <input type="button" value="LIGAR" onclick="ligar()">
+     <input type="button" value="DESLIGAR" onclick="desligar()">
+    </div>
+
+
+    <div id="lampada">
+
+    <img id ="lamp" src="on.png" data-stade alt="">
+    
+    </div>
+
+    <div id="lampada1">
+    <img id ="lamp1" src="on.png" data-stade1 alt="">
+    </div>
+
+
+    
+
+    
+<!--
+    configurações abaixo serve para baixar o pacote necessario para 
+    interagir, e antendicar no banco de dados.
+-->
+   <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-database.js"></script>  
+   <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyDnzAxLeJ4EddN0tPkQT-6wCQ4BeA3og9E",
+    authDomain: "teste-lampada-3e722.firebaseapp.com",
+    databaseURL: "https://teste-lampada-3e722.firebaseio.com",
+    storageBucket: "teste-lampada-3e722.appspot.com",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+   </script>
+
+
+    
+
+    <div id="resultado">
+         
+    </div>
+
+
+
+    </section>
+
+    
+    <footer>
+        <p>&copy; Eletrica Pinho</p>
+    </footer>
+
+    <script src="firebase.js"></script>
+    
+</body>
+</html>
