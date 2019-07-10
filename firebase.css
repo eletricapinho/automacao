@@ -1,0 +1,47 @@
+body
+{
+    background: rgb(70, 107, 241);
+    font:  normal 15pt arial;
+    
+
+}
+
+header
+{
+    color: white;
+    text-align: center;
+    
+
+
+}
+
+
+section
+{
+    
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    width: 1000px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.349);
+
+    
+
+
+
+}
+
+footer
+{
+    color: white;
+    text-align: center;
+    font-style: italic;
+
+
+}
+
+select#tabela{
+
+    width:200px; /*   largura   */
+}
