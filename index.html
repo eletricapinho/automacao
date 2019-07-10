@@ -1,67 +1,135 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lampada Teste</title>
+    <title>Painel de Controle</title>
+    <link rel="stylesheet" href="firebase.css">
 </head>
-<body>
-    <img id ="lamp" src="on.png" data-stade alt="">
-
-    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script> 
-    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-database.js"></script> 
-
-    <script>
+<body onload=" status()">
+    <header>
+    <h1>Painel de Controle</h1>
+    </header>
 
 
+    <section>
+
+    <div>
+    <input type="button" value="LIGAR" onclick="ligar()">
+     <input type="button" value="DESLIGAR" onclick="desligar()">
+    </div>
+
+
+    
+
+    
+
+    
+<!--
+    configurações abaixo serve para baixar o pacote necessario para 
+    interagir, e antendicar no banco de dados  firebase.
+-->
+   <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-database.js"></script>  
+   <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyDnzAxLeJ4EddN0tPkQT-6wCQ4BeA3og9E",
+    authDomain: "teste-lampada-3e722.firebaseapp.com",
+    databaseURL: "https://teste-lampada-3e722.firebaseio.com",
+    storageBucket: "teste-lampada-3e722.appspot.com",
+    };
+    firebase.initializeApp(firebaseConfig);   //inicia o firebase
        
-        
-        var firebaseConfig = {
-        apiKey: "AIzaSyDnzAxLeJ4EddN0tPkQT-6wCQ4BeA3og9E",
-        authDomain: "teste-lampada-3e722.firebaseapp.com",
-        databaseURL: "https://teste-lampada-3e722.firebaseio.com",
-        storageBucket: "teste-lampada-3e722.appspot.com",
-        };
-
-        firebase.initializeApp(firebaseConfig);
-
-        let database = firebase.database();
-
-        let lamp = document.querySelector('#lamp');
-        
-        lamp.addEventListener('click', () => {
-            let val = lamp.getAttribute('data-state');
-            console.log(val);
-            if (val == '0') {
-                database.ref('Controle/').set(1);
-            }
-
-            if (val == '1') {
-                database.ref('Controle/').set(0);
-            }
-
-        });
-
-    database.ref('Controle/').on('value', snapshot => {
-        var buttonState = snapshot.val();
-
-        if (buttonState == '1') {
-            
-            lamp.src = 'off.png';
-
-            lamp.setAttribute('data-state', '1');
-        }else{
-            lamp.src = 'on.png';
-
-            lamp.setAttribute('data-state', '0');
-
-        }
-    });
        
+       
+       var res = document.getElementById('resultado')
+let lamp = document.querySelector('#lamp');
+let lamp1 = document.querySelector('#lamp1');
 
-  
-    </script>
+
+
+let database = firebase.database();  // instacia para ler ou escrever dados no firebase
+
+
+function desligar(){
+    database.ref('Controle/').set(1);  /// muda o banco e desliga o rele 
+ //  status()
+}
+
+
+function ligar(){
+    database.ref('Controle/').set(0);   // muda o banco e Liga  o rele
+  //  status()
+
+}
+
+
+
+
+function status(){    ///função responsavel por atualizar os estados do rele 
+    
+res.innerHTML = `Iniciando...`   ///teste se função foi acionada 
+
+database.ref('Controle/').on('value', snapshot => {    ///essa para é mais importante pois é aqui que a magica acontece 
+   var  buttonState = snapshot.val();  //// snapshot é referencia 
+
+   switch(buttonState){
+       case 0:
+        res.innerText = "ligado"
+            break;
+        case 1:
+        res.innerText = "desligado"
+            break;
+        default:
+         res.innerText = "[ERRO]"
+            break;
+   }
+
+
+
+/*
+
+    if (buttonState == '1') {    /// condicional para veridicar se esta ligado os desligado
+       res.innerText = "desligado"
+    }else{
+      res.innerText = "ligado"
+    }
+
+*/
+
+
+
+
+
+});
+
+
+
+
+}
+
+   </script>
+
+    
+
+
+
+
+
+    <div id="resultado">
+         
+    </div>
+
+
+    </section>
+
+    
+    <footer>
+        <p>&copy; Eletrica Pinho</p>
+    </footer>
+
+    <script src="firebase.js"></script>
     
 </body>
 </html>
