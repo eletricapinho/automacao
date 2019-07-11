@@ -6,11 +6,13 @@ var res3 = document.getElementById('resultado3')
 
 let database = firebase.database();  // instacia para ler ou escrever dados no firebase
 
+
+
 function status(){  // chamada no body  onlond chama as demais funçoes 
 
 status_escritorio()  
 status_varanda()
-   
+status_placateste()
 
 }
 
@@ -56,9 +58,6 @@ database.ref('Controle/').on('value', snapshot => {    ///essa para é mais impo
 }
 
 
-
-
-
 function desligar_varanda(){
     database.ref('luzVaranda/').set(1);  /// muda o banco e desliga o rele 
  //  status()
@@ -93,6 +92,49 @@ function status_varanda(){    ///função responsavel por atualizar os estados d
                 break;
             default:
              res1.innerText = "[ERRO]"
+                break;
+        }});
+}
+
+
+
+         
+
+function desligar_placateste(){
+    database.ref('placateste/').set(1);   // muda o banco e Liga  o rele
+  //  status()
+
+}
+
+
+
+function ligar_placateste(){
+    database.ref('placateste/').set(0);   // muda o banco e Liga  o rele
+  //  status()
+
+}
+
+
+
+function status_placateste(){    ///função responsavel por atualizar os estados do rele 
+    
+    res2.innerHTML = `INICIANDO...`   ///teste se função foi acionada 
+    res2.style.background = 'green'
+    
+    database.ref('placateste/').on('value', snapshot => {    ///essa para é mais importante pois é aqui que a magica acontece 
+       var  buttonState = snapshot.val();  //// snapshot é referencia 
+    
+       switch(buttonState){
+           case 0:
+            res2.innerText = "LIGADO"
+            res2.style.background = 'red'
+                break;
+            case 1:
+            res2.innerText = "DESLIGADO"
+            res2.style.background = 'black'
+                break;
+            default:
+             res2.innerText = "[ERRO]"
                 break;
         }});
 }
