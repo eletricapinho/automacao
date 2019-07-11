@@ -22,7 +22,7 @@ section
     background: white;
     border-radius: 20px;
     padding: 15px;
-    width: 1000px;
+    width: 853px;
     margin: auto;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.349);
     
@@ -40,33 +40,50 @@ footer
 
 }
 
-select#tabela{
-
-    width:200px; /*   largura   */
-}
 
 
-div#area {
+div#resultado {
     font: normal 20pt arial;
     background-color: rgb(64, 121, 7);
     color: white;
     width: 200px;
-    height: 200px;
-    line-height: 200px;
-    text-align: center;
-}
-
-
-div#resultado {
-    font: normal 10pt arial;
-    background-color: rgb(64, 121, 7);
-    color: white;
-    width: 100px;
     height: 100px;
     line-height: 100px;
     text-align: center;
-    border-radius: 20px;
+
+}
 
 
+div#resultado1 {
+    font: normal 20pt arial;
+    background-color: rgb(64, 121, 7);
+    color: white;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+
+}
+
+
+div#resultado2 {
+    font: normal 20pt arial;
+    background-color: rgb(64, 121, 7);
+    color: white;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+
+}
+
+div#resultado3 {
+    font: normal 20pt arial;
+    background-color: rgb(64, 121, 7);
+    color: white;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
 
 }

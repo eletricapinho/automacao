@@ -15,10 +15,9 @@
 
     <section>
 
-    <div>
-    <input type="button" value="LIGAR" onclick="ligar()">
-    <input type="button" value="DESLIGAR" onclick="desligar()">
-    </div>
+    
+    
+   
 
 <!--
     configurações abaixo serve para baixar o pacote necessario para 
@@ -36,10 +35,56 @@
     firebase.initializeApp(firebaseConfig);   //inicia o firebase
    </script>
 
-    <div id="resultado">
-         
-    </div>
+   <table width ='' height =''>
+    <tr>
+        
+            <td>
+            <input type="button"  value="LIGAR" onclick="ligar_escritorio()" style="width: 100px; height: 100px">
+            <input type="button" value="DESLIGAR" onclick="desligar_escritorio()" style="width: 100px; height: 100px">
+            </td>
+            <TD>
+            <input type="button"  value="LIGAR" onclick="ligar_varanda()" style="width: 100px; height: 100px">
+            <input type="button" value="DESLIGAR" onclick="desligar_varanda()" style="width: 100px; height: 100px">
 
+            </TD>
+
+            <TD>
+            <input type="button"  value="LIGAR" onclick="ligar()" style="width: 100px; height: 100px">
+            <input type="button" value="DESLIGAR" onclick="desligar()" style="width: 100px; height: 100px">
+
+            </TD>
+
+            <TD>
+            <input type="button"  value="LIGAR" onclick="ligar()" style="width: 100px; height: 100px">
+            <input type="button" value="DESLIGAR" onclick="desligar()" style="width: 100px; height: 100px">
+
+            </TD>
+
+
+
+        <tr>
+            <td align="center">ESCRITORIO </td>
+            <td align="center">VARANDA </td>
+            <td align="center">TESTE</td>
+            <td align="center">******* </td>
+          
+        </tr>
+
+
+        <td align="center"><div id="resultado"></div></td>
+        <td align="center"><div id="resultado1"></div></td>
+        <td align="center"><div id="resultado2"></div></td>
+        <td align="center"><div id="resultado3"></div></td>
+          
+    </tr>
+    
+   </table>
+
+   
+
+
+
+    
 
     </section>
 
