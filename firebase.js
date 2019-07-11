@@ -2,7 +2,6 @@ var res = document.getElementById('resultado')
 let lamp = document.querySelector('#lamp');
 let lamp1 = document.querySelector('#lamp1');
 
-//res.addEventListener('click',clicar)
 
 
 
@@ -21,8 +20,6 @@ function ligar(){
   //  status()
 
 }
-
-
 
 
 function status(){    ///função responsavel por atualizar os estados do rele 
