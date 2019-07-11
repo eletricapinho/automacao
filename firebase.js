@@ -2,6 +2,8 @@ var res = document.getElementById('resultado')
 let lamp = document.querySelector('#lamp');
 let lamp1 = document.querySelector('#lamp1');
 
+//res.addEventListener('click',clicar)
+
 
 
 let database = firebase.database();  // instacia para ler ou escrever dados no firebase
@@ -10,6 +12,7 @@ let database = firebase.database();  // instacia para ler ou escrever dados no f
 function desligar(){
     database.ref('Controle/').set(1);  /// muda o banco e desliga o rele 
  //  status()
+ 
 }
 
 
@@ -24,42 +27,23 @@ function ligar(){
 
 function status(){    ///função responsavel por atualizar os estados do rele 
     
-res.innerHTML = `Iniciando...`   ///teste se função foi acionada 
+res.innerHTML = `INICIANDO...`   ///teste se função foi acionada 
+res.style.background = 'green'
 
 database.ref('Controle/').on('value', snapshot => {    ///essa para é mais importante pois é aqui que a magica acontece 
    var  buttonState = snapshot.val();  //// snapshot é referencia 
 
    switch(buttonState){
        case 0:
-        res.innerText = "ligado"
+        res.innerText = "LIGADO"
+        res.style.background = 'red'
             break;
         case 1:
-        res.innerText = "desligado"
+        res.innerText = "DESLIGADO"
+        res.style.background = 'black'
             break;
         default:
          res.innerText = "[ERRO]"
             break;
-   }
-
-
-
-/*
-
-    if (buttonState == '1') {    /// condicional para veridicar se esta ligado os desligado
-       res.innerText = "desligado"
-    }else{
-      res.innerText = "ligado"
-    }
-
-*/
-
-
-
-
-
-});
-
-
-
-
+    }});
 }
