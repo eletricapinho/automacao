@@ -3,6 +3,21 @@ var res1 = document.getElementById('resultado1')
 var res2 = document.getElementById('resultado2')
 var res3 = document.getElementById('resultado3')
 
+var usuario = document.getElementById('usuario')
+var senha   = document.getElementById('senha')
+
+function logar() {
+
+resposta.innerHTML = ` usuario ${usuario.value}  senha${senha.value}`
+
+if(usuario.value == "Pinho" && senha.value == "1234"){
+    location = "tela-logado.html"
+}else{
+    alert('Dados incorretos')
+}
+    
+}
+
 
 let database = firebase.database();  // instacia para ler ou escrever dados no firebase
 
