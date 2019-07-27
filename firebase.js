@@ -6,9 +6,8 @@ var res3 = document.getElementById('resultado3')
 var usuario = document.getElementById('usuario')
 var senha   = document.getElementById('senha')
 
-function logar() {
 
-resposta.innerHTML = ` usuario ${usuario.value}  senha${senha.value}`
+function logar() {
 
 if(usuario.value == "Pinho" && senha.value == "1234"){
     location = "tela-logado.html"
